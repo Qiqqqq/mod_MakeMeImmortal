@@ -1,6 +1,8 @@
 package com.mod.immortal.common.item;
 
 import com.mod.immortal.MakeMeImmortal;
+import com.mod.immortal.common.item.material.ItemMaterialMaker;
+import com.mod.immortal.common.item.material.MaterialType;
 import com.mod.immortal.common.util.ItemNames;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.creativetab.CreativeTabs;
@@ -16,31 +18,19 @@ import net.minecraftforge.registries.IForgeRegistry;
 
 
 public class ItemLoader {
-    public static Properties itemProperties;
-
-    @GameRegistry.ObjectHolder(ItemNames.DREAM_GLASS)
-    public static Item dreamGlass = new Item();
 
     @Mod.EventBusSubscriber(modid = MakeMeImmortal.MODID)
     public static class Registration{
 
-        private static Item[] items = {
-                dreamGlass.setUnlocalizedName("dreamGlass").setRegistryName("dream_glass").setCreativeTab(CreativeTabs.MATERIALS)
-        };
-
-        public static Item getByName(String name){
-            for(Item item:items)
-                if(item.getUnlocalizedName().equals(name))
-                    return item;
-            return Items.AIR;
-        }
         @SubscribeEvent
-        public static void registerItems(final RegistryEvent.Register<Item> event)
+        public static void registerMaterialItems(final RegistryEvent.Register<Item> event)
         {
             IForgeRegistry<Item> itemRegistry = event.getRegistry();
-            for(Item item : items){
-                ModelLoader.setCustomModelResourceLocation(item,0,new ModelResourceLocation(item.getRegistryName(), "inventory"));
-                itemRegistry.register(item);
+
+            for(MaterialType item : MaterialType.values()){
+                ItemMaterialMaker itemMaker = new ItemMaterialMaker(item);
+                ModelLoader.setCustomModelResourceLocation(itemMaker,0,new ModelResourceLocation(itemMaker.getRegistryName(), "inventory"));
+                itemRegistry.register(itemMaker);
             }
         }
     }
