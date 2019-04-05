@@ -1,0 +1,14 @@
+{
+  "result": {
+    "item": "immortal:dreamglass"
+  },
+  "type": "forge:ore_shapeless",
+  "ingredients": [
+    {
+      "item": "immortal:materialmaker"
+    },
+    {
+      "item": "minecraft:grass"
+    }
+  ]
+}

@@ -17,18 +17,11 @@ import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-import java.util.Locale;
-
-public class ItemMaterialMaker extends ItemMod {
+public class ItemMaterialMaker extends ItemMaterial {
 
     public ItemMaterialMaker() {
 		super(ItemNames.MATERIAL_MAKER);
 	}
 
-    //right-click
-    @Override
-    public EnumActionResult onItemUseFirst(EntityPlayer playerIn, World worldIn, BlockPos pos, EnumFacing side, float hitX, float hitY, float hitZ, EnumHand hand) {
-        return EnumActionResult.SUCCESS;
-    }
     
 }

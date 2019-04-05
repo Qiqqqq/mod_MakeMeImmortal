@@ -1,2 +1,10 @@
 #item
-item.dreamGlass.name=仙草
+item.immortal:dreamGlass.name=仙草
+item.immortal:materialMaker.name=仙丹
+item.immortal:twine.name=麻绳
+
+#tile
+tile.immortal:materialStone.name=仙石
+
+#itemGroup
+itemGroup.immortal=修仙

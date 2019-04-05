@@ -1,0 +1,14 @@
+{
+  "result": {
+    "item": "immortal:twine"
+  },
+  "pattern": [
+    "SSS"
+  ],
+  "type": "forge:ore_shaped",
+  "key": {
+    "S": {
+      "item": "minecraft:string"
+    }
+  }
+}

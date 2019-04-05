@@ -1,2 +1,10 @@
 #item
-item.dreamGlass.name=Dream Glass
+item.immortal:dreamGlass.name=Dream Glass
+item.immortal:materialMaker.name=Material Maker
+item.immortal:twine.name=Twine
+
+#tile
+tile.immortal:materialStone.name=Material Stone
+
+#itemGroupM
+itemGroup.immortal=Immortal
