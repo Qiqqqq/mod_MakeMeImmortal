@@ -1,6 +1,9 @@
 package com.mod.immortal.common.core;
 
 import javax.annotation.Nonnull;
+
+import com.mod.immortal.common.item.ItemLoader;
+
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -12,20 +15,15 @@ public class ImmortalCreativeTabs {
     private ImmortalCreativeTabs()
     {
     }
-    public static final CreativeTabs tabImmortal = new CreativeTabs("immortal")
+    public static final CreativeTabs TAB_IMMORTAL = new CreativeTabs("immortal")
     {
         @Override
         @Nonnull
         @SideOnly(Side.CLIENT)
         public ItemStack getTabIconItem()
         {
-            return new ItemStack(new Item());
+            return new ItemStack(ItemLoader.DREAM_GLASS);
         }
 
-        @SideOnly(Side.CLIENT)
-        @Override
-        public void displayAllRelevantItems(NonNullList<ItemStack> listIn)
-        {
-        }
     };
 }
