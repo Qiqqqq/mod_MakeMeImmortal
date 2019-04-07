@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/crop",
+  "textures": {
+    "all": "immortal:blocks/material_dream_glass"
+  }
+}

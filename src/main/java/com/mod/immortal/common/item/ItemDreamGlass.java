@@ -21,7 +21,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.client.model.ModelLoader;
 
-public class ItemDreamGlass extends ItemMod {
+public class ItemDreamGlass extends ItemMod  {
 	
 	public ItemDreamGlass() {
 		super(ItemNames.DREAM_GLASS);

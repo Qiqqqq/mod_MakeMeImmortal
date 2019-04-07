@@ -8,5 +8,6 @@ public class ItemNames {
     public static final String MATERIAL_MAKER = "materialMaker";
 
     public static final String TWINE = "twine";
+    public static final String HERB = "herb";
     
 }

@@ -1,6 +1,7 @@
 package com.mod.immortal.common.item;
 
 import com.mod.immortal.MakeMeImmortal;
+import com.mod.immortal.common.block.material.BlockHerb;
 import com.mod.immortal.common.item.material.ItemMaterialMaker;
 import com.mod.immortal.common.util.ItemNames;
 
@@ -23,20 +24,21 @@ public class ItemLoader {
     public static final Item DREAM_GLASS = new ItemDreamGlass();
     public static final Item MATERIAL_MAKER = new ItemMaterialMaker();
     public static final Item TWINE = new ItemTwine();
-    	
+    public static final Item HERB = new ItemHerb(0, 0.7F, new BlockHerb(), ItemNames.HERB);
+
     private static Item[] items = {
-       	DREAM_GLASS,
-       	MATERIAL_MAKER,
-       	TWINE
+            DREAM_GLASS,
+            MATERIAL_MAKER,
+            TWINE,
+            HERB
     };
 
     @SubscribeEvent
-    public static void registerItems(final RegistryEvent.Register<Item> event)
-    {
+    public static void registerItems(final RegistryEvent.Register<Item> event) {
         IForgeRegistry<Item> itemReg = event.getRegistry();
-        for(Item item : items){
-            ModelLoader.setCustomModelResourceLocation(item,0,new ModelResourceLocation(item.getRegistryName(), "inventory"));
-        	itemReg.register(item);
+        for (Item item : items) {
+            ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(item.getRegistryName(), "inventory"));
+            itemReg.register(item);
         }
     }
 }

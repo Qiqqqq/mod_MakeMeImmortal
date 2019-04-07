@@ -6,6 +6,7 @@ import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+
 @Mod(modid = MakeMeImmortal.MODID, name = MakeMeImmortal.NAME, version = MakeMeImmortal.VERSION, acceptedMinecraftVersions = "1.12.2")
 public class MakeMeImmortal {
     public static final String MODID = "immortal";
