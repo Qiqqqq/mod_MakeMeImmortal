@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "immortal:blocks/material_herb"
+    "layer0": "immortal:items/herb"
   }
 }
