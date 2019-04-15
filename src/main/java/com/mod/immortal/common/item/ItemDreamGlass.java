@@ -2,24 +2,17 @@ package com.mod.immortal.common.item;
 
 import javax.annotation.Nonnull;
 
-import com.mod.immortal.MakeMeImmortal;
-import com.mod.immortal.common.core.ImmortalCreativeTabs;
 import com.mod.immortal.common.util.ItemNames;
 
-import net.minecraft.client.renderer.block.model.ModelResourceLocation;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.SoundEvents;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumHand;
-import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import net.minecraftforge.client.model.ModelLoader;
 
 public class ItemDreamGlass extends ItemMod  {
 	

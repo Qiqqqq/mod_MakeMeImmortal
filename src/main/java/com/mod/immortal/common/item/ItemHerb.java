@@ -5,7 +5,6 @@ import com.mod.immortal.common.core.ImmortalCreativeTabs;
 
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.block.Block;
-import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.init.Blocks;
@@ -17,7 +16,6 @@ import net.minecraft.util.EnumHand;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import net.minecraftforge.client.model.ModelLoader;
 
 public class ItemHerb extends ItemSeedFood {
     public final float saturation;

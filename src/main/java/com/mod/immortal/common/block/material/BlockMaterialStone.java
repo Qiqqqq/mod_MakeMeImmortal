@@ -2,12 +2,9 @@ package com.mod.immortal.common.block.material;
 
 import com.mod.immortal.common.block.BlockMod;
 import com.mod.immortal.common.util.BlockNames;
-import com.mod.immortal.common.util.ItemNames;
 
-import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
-import net.minecraft.item.Item;
 
 public class BlockMaterialStone extends BlockMod {
 	
