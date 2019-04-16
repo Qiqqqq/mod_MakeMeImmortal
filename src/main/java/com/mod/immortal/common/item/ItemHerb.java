@@ -8,29 +8,31 @@ import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.init.Blocks;
-import net.minecraft.item.ItemSeedFood;
+import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import net.minecraftforge.common.IPlantable;
 
-public class ItemHerb extends ItemSeedFood {
+public class ItemHerb extends ItemFood implements IPlantable {
     public final float saturation;
     private final Block crops;
     private final Block soilId;
 
     public ItemHerb(int healAmount, float saturation, Block crops, String name) {
-        super(healAmount, saturation, crops, Blocks.FARMLAND);
+        super(healAmount, saturation, false);
         this.saturation = saturation;
         this.crops = crops;
         this.soilId = Blocks.FARMLAND;
         setUnlocalizedName(MakeMeImmortal.MODID + ":" + name);
         setRegistryName(new ResourceLocation(MakeMeImmortal.MODID, name));
         setCreativeTab(ImmortalCreativeTabs.TAB_IMMORTAL);
-        
+        setAlwaysEdible();
     }
     @Override
     public EnumActionResult onItemUse(EntityPlayer player, World worldIn, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ){
@@ -48,4 +50,13 @@ public class ItemHerb extends ItemSeedFood {
             return EnumActionResult.FAIL;
         }
     }
+
+    public net.minecraftforge.common.EnumPlantType getPlantType(IBlockAccess world, BlockPos pos){
+        return net.minecraftforge.common.EnumPlantType.Crop;
+    }
+
+    public net.minecraft.block.state.IBlockState getPlant(IBlockAccess world, BlockPos pos){
+        return this.crops.getDefaultState();
+    }
+    
 }
