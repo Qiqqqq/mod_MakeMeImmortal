@@ -2,7 +2,7 @@ package com.mod.immortal.common.item;
 
 import javax.annotation.Nonnull;
 
-import com.mod.immortal.common.util.ItemNames;
+import com.mod.immortal.common.lib.ItemNames;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.SoundEvents;

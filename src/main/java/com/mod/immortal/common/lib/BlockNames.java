@@ -1,4 +1,4 @@
-package com.mod.immortal.common.util;
+package com.mod.immortal.common.lib;
 
 public class BlockNames {
 

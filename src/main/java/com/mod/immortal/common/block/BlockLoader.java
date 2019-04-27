@@ -14,7 +14,7 @@ import net.minecraftforge.registries.IForgeRegistry;
 
 import com.mod.immortal.MakeMeImmortal;
 import com.mod.immortal.common.block.material.BlockMaterialStone;
-import com.mod.immortal.common.util.BlockNames;
+import com.mod.immortal.common.lib.BlockNames;
 
 @Mod.EventBusSubscriber(modid = MakeMeImmortal.MODID)
 public class BlockLoader {

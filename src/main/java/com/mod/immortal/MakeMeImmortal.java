@@ -2,12 +2,16 @@ package com.mod.immortal;
 
 import com.mod.immortal.common.CommonProxy;
 import com.mod.immortal.common.gen.OreGenerator;
+import com.mod.immortal.common.util.GuiHandler;
+import com.mod.immortal.common.util.PlayerTagManager;
 
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
 @Mod(modid = MakeMeImmortal.MODID, name = MakeMeImmortal.NAME, version = MakeMeImmortal.VERSION, acceptedMinecraftVersions = "1.12.2")
@@ -31,6 +35,7 @@ public class MakeMeImmortal {
         proxy.init(event);
 
         GameRegistry.registerWorldGenerator(OreGenerator.INSTANCE, 0);
+        NetworkRegistry.INSTANCE.registerGuiHandler(MakeMeImmortal.instance, new GuiHandler());
     }
 
     @Mod.EventHandler

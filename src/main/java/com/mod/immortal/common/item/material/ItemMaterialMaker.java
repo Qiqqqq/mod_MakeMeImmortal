@@ -2,7 +2,7 @@ package com.mod.immortal.common.item.material;
 
 import com.mod.immortal.common.core.ImmortalCreativeTabs;
 import com.mod.immortal.common.item.ItemMod;
-import com.mod.immortal.common.util.ItemNames;
+import com.mod.immortal.common.lib.ItemNames;
 
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;

@@ -1,7 +1,7 @@
 package com.mod.immortal.common.block.material;
 
 import com.mod.immortal.common.block.BlockMod;
-import com.mod.immortal.common.util.BlockNames;
+import com.mod.immortal.common.lib.BlockNames;
 
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;

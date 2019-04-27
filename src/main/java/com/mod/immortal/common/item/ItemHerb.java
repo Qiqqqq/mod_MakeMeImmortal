@@ -2,6 +2,8 @@ package com.mod.immortal.common.item;
 
 import com.mod.immortal.MakeMeImmortal;
 import com.mod.immortal.common.core.ImmortalCreativeTabs;
+import com.mod.immortal.common.lib.TagNames;
+import com.mod.immortal.common.util.PlayerTagManager;
 
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.block.Block;
@@ -10,6 +12,7 @@ import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemStack;
+import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
@@ -19,23 +22,28 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.IPlantable;
 
-public class ItemHerb extends ItemFood implements IPlantable {
+public class ItemHerb extends ItemFoodMod implements IPlantable {
     public final float saturation;
     private final Block crops;
     private final Block soilId;
 
     public ItemHerb(int healAmount, float saturation, Block crops, String name) {
-        super(healAmount, saturation, false);
+        super(healAmount, saturation, name);
         this.saturation = saturation;
         this.crops = crops;
         this.soilId = Blocks.FARMLAND;
-        setUnlocalizedName(MakeMeImmortal.MODID + ":" + name);
-        setRegistryName(new ResourceLocation(MakeMeImmortal.MODID, name));
-        setCreativeTab(ImmortalCreativeTabs.TAB_IMMORTAL);
-        setAlwaysEdible();
+        this.setAlwaysEdible();
     }
+    
+
+    protected void onFoodEaten(ItemStack stack, World worldIn, EntityPlayer player) {
+        if (!worldIn.isRemote){
+            PlayerTagManager.addImmortalTagValue(player, TagNames.TAG_IMMORTAL_SPIRIT, 10);
+        }
+    }
+    
     @Override
-    public EnumActionResult onItemUse(EntityPlayer player, World worldIn, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ){
+    public EnumActionResult onItemUse(EntityPlayer player, World worldIn, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
         ItemStack itemstack = player.getHeldItem(hand);
         if (facing == EnumFacing.UP && player.canPlayerEdit(pos.offset(facing), facing, itemstack) && worldIn.getBlockState(pos).getBlock() == this.soilId && worldIn.isAirBlock(pos.up())) {
             worldIn.setBlockState(pos.up(), this.crops.getDefaultState());
