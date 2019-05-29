@@ -8,3 +8,8 @@ tile.immortal:materialStone.name=仙石
 
 #itemGroup
 itemGroup.immortal=修仙
+
+#guidebook
+immortal.guidebook.page0=这是第0页
+immortal.guidebook.page1=这是第1页
+immortal.guidebook.page2=这是第2页

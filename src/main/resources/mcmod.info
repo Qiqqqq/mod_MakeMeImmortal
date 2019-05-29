@@ -6,10 +6,9 @@
   "version": "${version}",
   "mcversion": "${mcversion}",
   "url": "",
-  "updateUrl": "",
   "authorList": ["Qi jianing","Sun yuhan"],
   "credits": "",
-  "logoFile": "",
+  "logoFile": "immortal_logo.png",
   "screenshots": [],
   "dependencies": []
 }

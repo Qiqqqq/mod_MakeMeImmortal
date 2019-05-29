@@ -3,6 +3,8 @@ package com.mod.immortal.common.util;
 import com.mod.immortal.MakeMeImmortal;
 import com.mod.immortal.client.gui.ContainerFlowerBag;
 import com.mod.immortal.client.gui.GuiFlowerBag;
+import com.mod.immortal.client.gui.GuiGuidebook;
+import com.mod.immortal.client.gui.GuiTPCircle;
 import com.mod.immortal.client.gui.InventoryFlowerBag;
 import com.mod.immortal.common.item.ItemLoader;
 import com.mod.immortal.common.lib.GuiIDs;
@@ -25,6 +27,13 @@ public class GuiHandler implements IGuiHandler {
 			case GuiIDs.FLOWER_BAG :
 				if(stack.getItem() == ItemLoader.FLOWER_BAG)
 					return new ContainerFlowerBag(player.inventory, new InventoryFlowerBag(stack));
+				break;
+				
+			case GuiIDs.TP_CIRCLE :
+				break;
+				
+			case GuiIDs.GUIDEBOOK :
+				break;
 			
 		}
 		return null;
@@ -38,7 +47,17 @@ public class GuiHandler implements IGuiHandler {
 			case GuiIDs.FLOWER_BAG :
 				if(stack.getItem() == ItemLoader.FLOWER_BAG)
 					return new GuiFlowerBag(player.inventory, new InventoryFlowerBag(stack));
-			
+				break;
+
+			case GuiIDs.TP_CIRCLE :
+				if(stack.getItem() == ItemLoader.MATERIAL_MAKER)
+					return new GuiTPCircle();
+				break;
+				
+			case GuiIDs.GUIDEBOOK :
+				if(stack.getItem() == ItemLoader.BUIDEBOOK)
+					return new GuiGuidebook(player, stack);
+				break;
 		}
 		return null;
 	}

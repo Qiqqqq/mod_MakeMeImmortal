@@ -19,26 +19,33 @@ import net.minecraftforge.registries.IForgeRegistry;
 @Mod.EventBusSubscriber(modid = MakeMeImmortal.MODID)
 public class ItemLoader {
 
-    public static final Item DREAM_GLASS = new ItemDreamGlass();
+    public static final Item FIEND_CORE = new ItemFiendCore();
     public static final Item MATERIAL_MAKER = new ItemMaterialMaker();
     public static final Item TWINE = new ItemTwine();
     public static final Item FLOWER_BAG = new ItemFlowerBag();
-    public static final Item HERB = new ItemHerb(0, 0.7F, BlockLoader.MATERIAL_HERB, ItemNames.HERB);
+    public static final Item HERB = new ItemHerb(1, 0.7F, BlockLoader.MATERIAL_HERB, ItemNames.HERB);
+    public static final Item CUSHION = new ItemCushion();
+    public static final Item VILLAGE_DETECTOR = new ItemVillageDetector();
+    public static final Item BUIDEBOOK = new ItemGuidebook();
+    
     public static final Item FU_JIN = new ItemFu(ItemNames.FU_JIN, FiveEleTypes.JIN);
     public static final Item FU_HUO = new ItemFu(ItemNames.FU_HUO, FiveEleTypes.HUO);
     public static final Item FU_SHUI = new ItemFu(ItemNames.FU_SHUI, FiveEleTypes.SHUI);
     public static final Item FU_TU = new ItemFu(ItemNames.FU_TU, FiveEleTypes.TU);
 
     private static Item[] items = {
-            DREAM_GLASS,
+    		FIEND_CORE,
             MATERIAL_MAKER,
             TWINE,
             FLOWER_BAG,
             HERB,
+            CUSHION,
             FU_JIN,
             FU_HUO,
             FU_SHUI,
-            FU_TU
+            FU_TU,
+            VILLAGE_DETECTOR,
+            BUIDEBOOK
     };
 
     @SubscribeEvent

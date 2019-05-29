@@ -2,6 +2,7 @@ package com.mod.immortal.common.item.weapon;
 
 import javax.annotation.Nonnull;
 
+import com.mod.immortal.common.lib.ActionNames;
 import com.mod.immortal.common.lib.FiveEleTypes;
 import com.mod.immortal.common.util.SpellHelper;
 
@@ -26,7 +27,7 @@ public class ItemFu extends ItemWeaponMod  {
 	@Nonnull
 	@Override
 	public EnumAction getItemUseAction(ItemStack par1ItemStack) {
-		return EnumAction.BOW;
+		return ActionNames.SPELL.parseEnumAction();
 	}
 
     /**

@@ -28,6 +28,10 @@ public class BlockLoader {
     public static final Block ORE_RED = new BlockOreMod(MapColor.RED, BlockNames.ORE_RED);
     public static final Item IB_ORE_RED = new ItemBlockMod(ORE_RED);
 
+    public static final Block TP_CORE = new BlockTPCore();
+    public static final Item IB_TP_CORE = new ItemBlockMod(TP_CORE);
+    
+    
     @SubscribeEvent
     public static void registerBlocks(final RegistryEvent.Register<Block> event) {
         IForgeRegistry<Block> blockReg = event.getRegistry();
@@ -36,6 +40,7 @@ public class BlockLoader {
     	registerBlock(MATERIAL_HERB, blockReg);
     	registerBlock(ORE_CYAN, blockReg);
     	registerBlock(ORE_RED, blockReg);
+    	registerBlock(TP_CORE, blockReg);
     }
 
     @SubscribeEvent
@@ -45,6 +50,7 @@ public class BlockLoader {
         registerItemBlock(IB_MATERIAL_STONE, itemReg);
         registerItemBlock(IB_ORE_CYAN, itemReg);
         registerItemBlock(IB_ORE_RED, itemReg);
+        registerItemBlock(IB_TP_CORE, itemReg);
     }
     
 	private static void registerBlock(Block block, IForgeRegistry<Block> blockReg){

@@ -8,3 +8,8 @@ tile.immortal:materialStone.name=Material Stone
 
 #itemGroupM
 itemGroup.immortal=Immortal
+
+#guidebook
+immortal.guidebook.page0=This is Page 0
+immortal.guidebook.page1=This is Page 1
+immortal.guidebook.page2=This is Page 2

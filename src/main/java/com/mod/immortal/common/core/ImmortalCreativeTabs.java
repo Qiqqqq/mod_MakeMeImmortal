@@ -20,7 +20,7 @@ public class ImmortalCreativeTabs {
         @SideOnly(Side.CLIENT)
         public ItemStack getTabIconItem()
         {
-            return new ItemStack(ItemLoader.DREAM_GLASS);
+            return new ItemStack(ItemLoader.FIEND_CORE);
         }
 
     };
