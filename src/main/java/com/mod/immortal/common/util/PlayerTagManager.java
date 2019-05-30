@@ -20,7 +20,7 @@ public final class PlayerTagManager {
 		if(!player.world.isRemote) {
 			PacketImmortalMsg msg = new PacketImmortalMsg();
 			msg.nbt = immortalTag.copy();
-			NetworkManager.instance.sendToServer(msg);
+			NetworkManager.instance.sendTo(msg, (EntityPlayerMP) player);
 		}
 	}
 	

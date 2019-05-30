@@ -50,9 +50,7 @@ public class GuiHandler implements IGuiHandler {
 				break;
 
 			case GuiIDs.TP_CIRCLE :
-				if(stack.getItem() == ItemLoader.MATERIAL_MAKER)
-					return new GuiTPCircle();
-				break;
+				return new GuiTPCircle();
 				
 			case GuiIDs.GUIDEBOOK :
 				if(stack.getItem() == ItemLoader.BUIDEBOOK)

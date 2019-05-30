@@ -35,14 +35,13 @@ import com.mod.immortal.common.world.ImmortalWorldSavedData;
 @SideOnly(Side.CLIENT)
 public class GuiTPCircle extends GuiScreen {
 	
-	ImmortalWorldSavedData data = null;
+	ImmortalWorldSavedData data = ImmortalWorldSavedData.instClient;
 	
 	public void initGui() {
 		
 		this.buttonList.clear();
 
-		data = ImmortalWorldSavedData.get(this.mc.world);
-		for (int i=0; i < data.size(); i++) {
+		for (int i=0; i < this.data.size(); i++) {
 		    this.buttonList.add(new GuiButton(i, this.width / 2 - 100, this.height / 4 + 40 + 20 * i, I18n.format(data.getName(i))));
 		}
 	
@@ -53,22 +52,23 @@ public class GuiTPCircle extends GuiScreen {
      */
     protected void actionPerformed(GuiButton button) throws IOException
     {
-    	if (button.id < data.size()) {
-    		this.teleport(data.getPosition(button.id));
+    	if (button.id < this.data.size()) {
+    		this.teleport(this.data.getPosition(button.id));
     		this.mc.displayGuiScreen((GuiScreen)null);
     	}
-    	
-//        switch (button.id)
-//        {
-//            case 0:
-//                System.out.println("button.id 0");
-//            	this.teleport();
-//                this.mc.displayGuiScreen((GuiScreen)null);
-//                break;=
-//        }
         
     }
     
+    /**
+     * Called from the main game loop to update the screen.
+     */
+    public void updateScreen()
+    {
+    	super.updateScreen();
+    	if (this.data.size() != buttonList.size()) {
+    		initGui();
+    	}
+    }
     
     /**
      * Draws the screen and all the components in it.

@@ -2,8 +2,11 @@ package com.mod.immortal.common.network;
 
 import java.util.EnumSet;
 
+import com.mod.immortal.MakeMeImmortal;
+import com.mod.immortal.common.lib.GuiIDs;
 import com.mod.immortal.common.lib.TagNames;
 import com.mod.immortal.common.util.PlayerTagManager;
+import com.mod.immortal.common.world.ImmortalWorldSavedData;
 
 import io.netty.buffer.ByteBuf;
 import net.minecraft.client.Minecraft;
@@ -48,11 +51,18 @@ public class PacketTeleportMod implements IMessage {
 				    	player.rotationPitch = 0F;
 				    	player.rotationYaw = 0F;
 				    	player.setPositionAndUpdate(coords.getX() + 0.5, coords.getY() + 1, coords.getZ() + 0.5);
-				    	
 					}
-					
 				});
-				
+			}
+			if (ctx.side == Side.CLIENT) {
+				Minecraft.getMinecraft().addScheduledTask(new Runnable()
+				{
+					public void run() {
+						ImmortalWorldSavedData.instClient.readFromNBT(message.nbt);
+						Minecraft mc = Minecraft.getMinecraft();
+						mc.player.openGui(MakeMeImmortal.instance, GuiIDs.TP_CIRCLE, mc.world, 0, 0, 0);
+					}
+				});
 			}
 			return null;
 		}

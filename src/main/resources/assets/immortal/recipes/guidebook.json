@@ -1,0 +1,14 @@
+{
+  "result": {
+    "item": "immortal:guidebook"
+  },
+  "type": "forge:ore_shapeless",
+  "ingredients": [
+    {
+      "item": "immortal:herb"
+    },
+    {
+      "item": "minecraft:book"
+    }
+  ]
+}

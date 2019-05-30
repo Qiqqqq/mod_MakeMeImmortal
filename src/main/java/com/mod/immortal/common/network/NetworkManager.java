@@ -19,6 +19,7 @@ public class NetworkManager {
     {
         registerMessage(PacketImmortalMsg.Handler.class, PacketImmortalMsg.class, Side.CLIENT);
         registerMessage(PacketTeleportMod.Handler.class, PacketTeleportMod.class, Side.SERVER);
+        registerMessage(PacketTeleportMod.Handler.class, PacketTeleportMod.class, Side.CLIENT);
         
     }
 
