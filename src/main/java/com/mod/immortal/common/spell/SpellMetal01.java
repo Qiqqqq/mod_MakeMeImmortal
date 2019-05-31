@@ -30,7 +30,8 @@ public class SpellMetal01 extends SpellMod {
 		}
 	    return EnumActionResult.SUCCESS;
 	}
-
+	
+	@Override
 	public int getSpiritCost() {
 		return 1;
 	}

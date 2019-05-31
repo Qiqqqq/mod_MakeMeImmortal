@@ -35,7 +35,7 @@ public class ItemHerb extends ItemFoodMod implements IPlantable {
         this.setAlwaysEdible();
     }
     
-
+    @Override
     protected void onFoodEaten(ItemStack stack, World worldIn, EntityPlayer player) {
         if (!worldIn.isRemote){
             PlayerTagManager.addImmortalTagValue(player, TagNames.TAG_IMMORTAL_SPIRIT, 10);
@@ -58,11 +58,13 @@ public class ItemHerb extends ItemFoodMod implements IPlantable {
             return EnumActionResult.FAIL;
         }
     }
-
+    
+    @Override
     public net.minecraftforge.common.EnumPlantType getPlantType(IBlockAccess world, BlockPos pos){
         return net.minecraftforge.common.EnumPlantType.Crop;
     }
-
+    
+    @Override
     public net.minecraft.block.state.IBlockState getPlant(IBlockAccess world, BlockPos pos){
         return this.crops.getDefaultState();
     }

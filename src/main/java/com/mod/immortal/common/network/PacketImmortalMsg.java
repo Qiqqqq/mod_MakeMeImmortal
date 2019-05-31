@@ -1,12 +1,10 @@
 package com.mod.immortal.common.network;
 
-import com.mod.immortal.common.lib.TagNames;
 import com.mod.immortal.common.util.PlayerTagManager;
 
 import io.netty.buffer.ByteBuf;
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.nbt.NBTBase;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraftforge.fml.common.network.ByteBufUtils;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
@@ -17,12 +15,14 @@ import net.minecraftforge.fml.relauncher.Side;
 public class PacketImmortalMsg implements IMessage {
 	
 	public NBTTagCompound nbt;
-
+	
+	@Override
 	public void fromBytes(ByteBuf buf) {
 		// TODO Auto-generated method stub
 		nbt = ByteBufUtils.readTag(buf);
 	}
-
+	
+	@Override
 	public void toBytes(ByteBuf buf) {
 		// TODO Auto-generated method stub
 		ByteBufUtils.writeTag(buf, nbt);
@@ -30,7 +30,7 @@ public class PacketImmortalMsg implements IMessage {
 	
 	
 	public static class Handler implements IMessageHandler<PacketImmortalMsg, IMessage> {
-
+		@Override
 		public IMessage onMessage(final PacketImmortalMsg message, MessageContext ctx) {
 			if (ctx.side == Side.CLIENT) {
 				Minecraft.getMinecraft().addScheduledTask(new Runnable()

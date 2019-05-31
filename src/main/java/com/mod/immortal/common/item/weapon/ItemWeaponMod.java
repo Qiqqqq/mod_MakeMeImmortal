@@ -10,6 +10,7 @@ import com.mod.immortal.common.lib.FiveEleTypes;
 public abstract class ItemWeaponMod extends ItemMod implements IFiveEleType {
 
 	protected final FiveEleTypes fiveEletype;
+	
 	public ItemWeaponMod(String name, FiveEleTypes fiveEletype) {
 		super(name);
         this.fiveEletype = fiveEletype;
@@ -17,7 +18,7 @@ public abstract class ItemWeaponMod extends ItemMod implements IFiveEleType {
         
 	}
 	
-
+	@Override
 	public FiveEleTypes getFiveEleType(ItemStack stack) {
 		// TODO Auto-generated method stub
 		return fiveEletype;

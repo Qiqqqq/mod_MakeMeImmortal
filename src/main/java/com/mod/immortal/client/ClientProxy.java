@@ -5,11 +5,9 @@ import java.util.Map;
 
 import com.mod.immortal.client.render.RenderPlayerMod;
 import com.mod.immortal.common.CommonProxy;
-import com.mod.immortal.common.util.RenderHandler;
 
 import net.minecraft.client.renderer.entity.RenderPlayer;
 import net.minecraft.client.renderer.entity.RenderManager;
-import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.client.FMLClientHandler;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;

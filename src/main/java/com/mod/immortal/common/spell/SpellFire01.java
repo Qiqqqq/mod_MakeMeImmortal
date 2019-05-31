@@ -36,7 +36,8 @@ public class SpellFire01 extends SpellMod {
 		}
 	    return EnumActionResult.SUCCESS;
 	}
-
+	
+	@Override
 	public int getSpiritCost() {
 		return 1;
 	}

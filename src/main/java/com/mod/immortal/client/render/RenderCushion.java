@@ -14,9 +14,8 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 @SideOnly(Side.CLIENT)
 public class RenderCushion extends Render<EntityCushion> {
-private static final ResourceLocation CUSHION_TEXTURE = new ResourceLocation(MakeMeImmortal.MODID + ":" + "textures/entities/cushion.png");
-		//new ResourceLocation("textures/entity/boat/boat_acacia.png");
-
+	
+	private static final ResourceLocation CUSHION_TEXTURE = new ResourceLocation(MakeMeImmortal.MODID + ":" + "textures/entities/cushion.png");
 	protected ModelBase modelCushion = new ModelCushion();
 	
 	public RenderCushion(RenderManager renderManager)

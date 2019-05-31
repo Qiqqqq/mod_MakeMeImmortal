@@ -1,22 +1,15 @@
 package com.mod.immortal.common.network;
 
-import java.util.EnumSet;
-
 import com.mod.immortal.MakeMeImmortal;
 import com.mod.immortal.common.lib.GuiIDs;
-import com.mod.immortal.common.lib.TagNames;
-import com.mod.immortal.common.util.PlayerTagManager;
 import com.mod.immortal.common.world.ImmortalWorldSavedData;
 
 import io.netty.buffer.ByteBuf;
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
-import net.minecraft.nbt.NBTBase;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.network.play.server.SPacketPlayerPosLook;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.World;
 import net.minecraftforge.fml.common.network.ByteBufUtils;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessageHandler;
@@ -26,12 +19,14 @@ import net.minecraftforge.fml.relauncher.Side;
 public class PacketTeleportMod implements IMessage {
 	
 	public NBTTagCompound nbt;
-
+	
+	@Override
 	public void fromBytes(ByteBuf buf) {
 		// TODO Auto-generated method stub
 		nbt = ByteBufUtils.readTag(buf);
 	}
-
+	
+	@Override
 	public void toBytes(ByteBuf buf) {
 		// TODO Auto-generated method stub
 		ByteBufUtils.writeTag(buf, nbt);
@@ -39,7 +34,7 @@ public class PacketTeleportMod implements IMessage {
 	
 	
 	public static class Handler implements IMessageHandler<PacketTeleportMod, IMessage> {
-
+		@Override
 		public IMessage onMessage(final PacketTeleportMod message, final MessageContext ctx) {
 			if (ctx.side == Side.SERVER) {
 				Minecraft.getMinecraft().addScheduledTask(new Runnable()

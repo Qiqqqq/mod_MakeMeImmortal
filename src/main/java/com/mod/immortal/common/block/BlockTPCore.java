@@ -57,6 +57,7 @@ public class BlockTPCore extends BlockMod {
         return true;
     }
 
+	@Override
     @SideOnly(Side.CLIENT)
     public void randomDisplayTick(IBlockState stateIn, World worldIn, BlockPos pos, Random rand)
     {

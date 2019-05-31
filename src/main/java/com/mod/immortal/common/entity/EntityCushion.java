@@ -47,18 +47,20 @@ public class EntityCushion extends Entity
         this.setPosition(x, y, z);
     }
 
+	@Override
+	protected void entityInit() {
+		// TODO Auto-generated method stub
+		
+	}
+	
     /**
      * returns if this entity triggers Block.onEntityWalking on the blocks they walk on. used for spiders and wolves to
      * prevent them from trampling crops
      */
+    @Override
     protected boolean canTriggerWalking()
     {
         return false;
-    }
-
-    protected void entityInit()
-    {
-
     }
 
     /**
@@ -66,6 +68,7 @@ public class EntityCushion extends Entity
      * pushable on contact, like boats or minecarts.
      */
     @Nullable
+    @Override
     public AxisAlignedBB getCollisionBox(Entity entityIn)
     {
         return entityIn.getEntityBoundingBox();
@@ -80,6 +83,7 @@ public class EntityCushion extends Entity
      * @see getEntityBoundingBox
      */
     @Nullable
+    @Override
     public AxisAlignedBB getCollisionBoundingBox()
     {
         return this.getEntityBoundingBox();
@@ -88,6 +92,7 @@ public class EntityCushion extends Entity
     /**
      * Returns the Y offset from the entity's position for any entity riding this one.
      */
+    @Override
     public double getMountedYOffset()
     {
         return 0.0D;
@@ -96,6 +101,7 @@ public class EntityCushion extends Entity
     /**
      * Called when the entity is attacked.
      */
+    @Override
     public boolean attackEntityFrom(DamageSource source, float amount)
     {
         if (this.isEntityInvulnerable(source))
@@ -130,6 +136,7 @@ public class EntityCushion extends Entity
     /**
      * Returns true if other Entities should be prevented from moving through this Entity.
      */
+    @Override
     public boolean canBeCollidedWith()
     {
         return !this.isDead;
@@ -166,7 +173,8 @@ public class EntityCushion extends Entity
         	this.world.spawnParticle(EnumParticleTypes.SMOKE_NORMAL, this.posX, this.posY + 1D, this.posZ, 0.0D, 0.0D, 0.0D);
         }
     }
-
+    
+    @Override
     public void updatePassenger(Entity passenger)
     {
         if (this.isPassenger(passenger))
@@ -222,6 +230,7 @@ public class EntityCushion extends Entity
     /**
      * Applies this entity's orientation (pitch/yaw) to another entity. Used to update passenger orientation.
      */
+    @Override
     @SideOnly(Side.CLIENT)
     public void applyOrientationToEntity(Entity entityToUpdate)
     {
@@ -231,6 +240,7 @@ public class EntityCushion extends Entity
     /**
      * (abstract) Protected helper method to write subclass entity data to NBT.
      */
+    @Override
     protected void writeEntityToNBT(NBTTagCompound compound)
     {
     }
@@ -238,10 +248,12 @@ public class EntityCushion extends Entity
     /**
      * (abstract) Protected helper method to read subclass entity data from NBT.
      */
+    @Override
     protected void readEntityFromNBT(NBTTagCompound compound)
     {
     }
 
+    @Override
     public boolean processInitialInteract(EntityPlayer player, EnumHand hand)
     {
         if (player.isSneaking())
@@ -259,6 +271,7 @@ public class EntityCushion extends Entity
         }
     }
 
+    @Override
     protected boolean canFitPassenger(Entity passenger)
     {
         return this.getPassengers().size() < 2;
@@ -269,25 +282,12 @@ public class EntityCushion extends Entity
      * Pigs, Horses, and Boats are generally "steered" by the controlling passenger.
      */
     @Nullable
+    @Override
     public Entity getControllingPassenger()
     {
         List<Entity> list = this.getPassengers();
         return list.isEmpty() ? null : (Entity)list.get(0);
     }
 
-    // Forge: Fix MC-119811 by instantly completing lerp on board
-//    @Override
-//    protected void addPassenger(Entity passenger)
-//    {
-//        super.addPassenger(passenger);
-//        if(this.canPassengerSteer() && this.lerpSteps > 0)
-//        {
-//            this.lerpSteps = 0;
-//            this.posX = this.lerpX;
-//            this.posY = this.lerpY;
-//            this.posZ = this.lerpZ;
-//            this.rotationYaw = (float)this.lerpYaw;
-//            this.rotationPitch = (float)this.lerpPitch;
-//        }
-//    }
+
 }

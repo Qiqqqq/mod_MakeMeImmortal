@@ -75,6 +75,7 @@ public class GuiGuidebook extends GuiScreen {
     /**
      * Called from the main game loop to update the screen.
      */
+	@Override
     public void updateScreen()
     {
         super.updateScreen();
@@ -85,13 +86,13 @@ public class GuiGuidebook extends GuiScreen {
      * Adds the buttons (and other controls) to the screen in question. Called when the GUI is displayed and when the
      * window resizes, the buttonList is cleared beforehand.
      */
+	@Override
     public void initGui()
     {
         this.buttonList.clear();
         Keyboard.enableRepeatEvents(true);
 
         int i = (this.width - 192) / 2;
-        int j = 2;
         this.buttonNextPage = (GuiGuidebook.NextPageButton)this.addButton(new GuiGuidebook.NextPageButton(1, i + 120, 156, true));
         this.buttonPreviousPage = (GuiGuidebook.NextPageButton)this.addButton(new GuiGuidebook.NextPageButton(2, i + 38, 156, false));
         this.updateButtons();
@@ -100,6 +101,7 @@ public class GuiGuidebook extends GuiScreen {
     /**
      * Called when the screen is unloaded. Used to disable keyboard repeat events
      */
+	@Override
     public void onGuiClosed()
     {
         Keyboard.enableRepeatEvents(false);
@@ -115,6 +117,7 @@ public class GuiGuidebook extends GuiScreen {
     /**
      * Called by the controls from the buttonList when activated. (Mouse pressed for buttons)
      */
+	@Override
     protected void actionPerformed(GuiButton button) throws IOException
     {
         if (button.enabled)
@@ -141,6 +144,7 @@ public class GuiGuidebook extends GuiScreen {
     /**
      * Draws the screen and all the components in it.
      */
+	@Override
     public void drawScreen(int mouseX, int mouseY, float partialTicks)
     {
         GlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);
@@ -188,6 +192,7 @@ public class GuiGuidebook extends GuiScreen {
     /**
      * Executes the click event specified by the given chat component
      */
+	@Override
     public boolean handleComponentClick(ITextComponent component)
     {
         ClickEvent clickevent = component.getStyle().getClickEvent();
@@ -246,6 +251,7 @@ public class GuiGuidebook extends GuiScreen {
         /**
          * Draws this button to the screen.
          */
+    	@Override
         public void drawButton(Minecraft mc, int mouseX, int mouseY, float partialTicks)
         {
             if (this.visible)

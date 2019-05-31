@@ -36,7 +36,8 @@ import com.mod.immortal.common.world.ImmortalWorldSavedData;
 public class GuiTPCircle extends GuiScreen {
 	
 	ImmortalWorldSavedData data = ImmortalWorldSavedData.instClient;
-	
+
+	@Override
 	public void initGui() {
 		
 		this.buttonList.clear();
@@ -50,6 +51,7 @@ public class GuiTPCircle extends GuiScreen {
     /**
      * Called by the controls from the buttonList when activated. (Mouse pressed for buttons)
      */
+	@Override
     protected void actionPerformed(GuiButton button) throws IOException
     {
     	if (button.id < this.data.size()) {
@@ -62,6 +64,7 @@ public class GuiTPCircle extends GuiScreen {
     /**
      * Called from the main game loop to update the screen.
      */
+	@Override
     public void updateScreen()
     {
     	super.updateScreen();
@@ -73,6 +76,7 @@ public class GuiTPCircle extends GuiScreen {
     /**
      * Draws the screen and all the components in it.
      */
+	@Override
     public void drawScreen(int mouseX, int mouseY, float partialTicks)
     {
         this.drawDefaultBackground();
@@ -83,13 +87,14 @@ public class GuiTPCircle extends GuiScreen {
     /**
      * Returns true if this GUI should pause the game when it is displayed in single-player
      */
+	@Override
     public boolean doesGuiPauseGame()
     {
         return false;
     }
 
-    protected void teleport(Vec3i pos) { 
-
+    protected void teleport(Vec3i pos) 
+    { 
     	PacketTeleportMod msg = new PacketTeleportMod();
 		msg.nbt = new NBTTagCompound();
 		msg.nbt.setInteger("x", pos.getX());

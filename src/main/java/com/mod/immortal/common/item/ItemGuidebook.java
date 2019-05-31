@@ -33,6 +33,7 @@ public class ItemGuidebook extends ItemMod {
     /**
      * Called when the equipped item is right clicked.
      */
+	@Override
     public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer playerIn, EnumHand handIn)
     {
         ItemStack itemstack = playerIn.getHeldItem(handIn);

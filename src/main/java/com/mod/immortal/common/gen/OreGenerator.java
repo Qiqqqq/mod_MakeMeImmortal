@@ -29,7 +29,8 @@ public class OreGenerator implements IWorldGenerator {
                                     15,
                                     BlockMatcher.forBlock(Blocks.STONE));
   }
-
+  
+  @Override
   public void generate(Random random, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator, IChunkProvider chunkProvider) {
     if(world.provider instanceof WorldProviderSurface) {
       generateOre(arditeGen, 20, random, chunkX, chunkZ, world);

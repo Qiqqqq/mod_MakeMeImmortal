@@ -68,21 +68,25 @@ public class ItemFlowerBag extends ItemMod {
 				else return toInsert;
 			}
 		};
-
+		
+		@Override
 		public boolean hasCapability(@Nonnull Capability<?> capability, @Nullable EnumFacing facing) {
 			return capability == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY;
 		}
-
+		
+		@Override
 		public <T> T getCapability(@Nonnull Capability<T> capability, @Nullable EnumFacing facing) {
 			if(capability == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY)
 				return CapabilityItemHandler.ITEM_HANDLER_CAPABILITY.cast(inv);
 			else return null;
 		}
-
+		
+		@Override
 		public NBTBase serializeNBT() {
 			return CapabilityItemHandler.ITEM_HANDLER_CAPABILITY.writeNBT(inv, null);
 		}
-
+		
+		@Override
 		public void deserializeNBT(NBTBase nbt) {
 			CapabilityItemHandler.ITEM_HANDLER_CAPABILITY.readNBT(inv, null, nbt);
 		}

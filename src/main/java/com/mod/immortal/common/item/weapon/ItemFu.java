@@ -33,6 +33,7 @@ public class ItemFu extends ItemWeaponMod  {
     /**
      * Called when the player stops using an Item (stops holding the right mouse button).
      */
+	@Override
     public void onPlayerStoppedUsing(ItemStack stack, World worldIn, EntityLivingBase entityLiving, int timeLeft)
     {
         if (entityLiving instanceof EntityPlayer)
@@ -51,6 +52,7 @@ public class ItemFu extends ItemWeaponMod  {
     /**
      * How long it takes to use or consume an item
      */
+	@Override
     public int getMaxItemUseDuration(ItemStack stack)
     {
         return 72000;
@@ -59,6 +61,7 @@ public class ItemFu extends ItemWeaponMod  {
     /**
      * Called when the equipped item is right clicked.
      */
+	@Override
     public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer playerIn, EnumHand handIn)
     {
         ItemStack itemstack = playerIn.getHeldItem(handIn);

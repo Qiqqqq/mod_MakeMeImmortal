@@ -24,11 +24,13 @@ public class ItemTwine extends ItemMod {
     /**
      * How long it takes to use or consume an item
      */
+	@Override
     public int getMaxItemUseDuration(ItemStack stack)
     {
         return 72000;
     }
-
+	
+    @Override
     public void onUsingTick(ItemStack stack, EntityLivingBase player, int count)
     {
     	if((count & 7) == 0 && this.rand.nextInt(4) == 0) {
@@ -40,6 +42,7 @@ public class ItemTwine extends ItemMod {
     /**
      * Called when the equipped item is right clicked.
      */
+    @Override
     public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer playerIn, EnumHand handIn)
     {
         ItemStack itemstack = playerIn.getHeldItem(handIn);

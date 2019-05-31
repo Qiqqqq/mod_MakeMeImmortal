@@ -12,6 +12,7 @@ public abstract class SpellMod implements IImmortalSpiritUser {
 	
 	public abstract EnumActionResult cast(World worldIn, EntityPlayer player);
 	
+	@Override
 	public boolean isSpiritEnough(EntityPlayer player) {
 		if(PlayerTagManager.getImmortalTagValue(player, TagNames.TAG_IMMORTAL_SPIRIT) < getSpiritCost()) {
 			return false;

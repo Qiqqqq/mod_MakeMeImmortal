@@ -22,6 +22,7 @@ public class BlockHerb extends BlockMod {
     /**
      * Get the Item that this Block should drop when harvested.
      */
+	@Override
     public Item getItemDropped(IBlockState state, Random rand, int fortune)
     {
         return ItemLoader.HERB;

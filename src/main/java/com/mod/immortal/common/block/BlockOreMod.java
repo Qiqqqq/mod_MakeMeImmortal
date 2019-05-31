@@ -25,6 +25,7 @@ public class BlockOreMod extends BlockMod {
     /**
      * Get the Item that this Block should drop when harvested.
      */
+	@Override
     public Item getItemDropped(IBlockState state, Random rand, int fortune) {
         if (this == BlockLoader.ORE_CYAN) {
             return ItemLoader.MATERIAL_MAKER;
@@ -37,6 +38,7 @@ public class BlockOreMod extends BlockMod {
     /**
      * Returns the quantity of items to drop on block destruction.
      */
+	@Override
     public int quantityDropped(Random random) {
         return 4 + random.nextInt(5);
     }
@@ -44,6 +46,7 @@ public class BlockOreMod extends BlockMod {
     /**
      * Get the quantity dropped based on the given fortune level
      */
+	@Override
     public int quantityDroppedWithBonus(int fortune, Random random) {
         if (fortune > 0 && Item.getItemFromBlock(this) != this.getItemDropped((IBlockState)this.getBlockState().getValidStates().iterator().next(), random, fortune)) {
             int i = random.nextInt(fortune + 2) - 1;
